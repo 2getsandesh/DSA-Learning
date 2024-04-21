@@ -15,3 +15,15 @@ print(diagonal)
 
 np.fill_diagonal(m1,0)
 print(m1)
+
+'''for i in range(len(m1)):
+    element = 0
+    for j in range(len(m2)):
+        element += m1[i][j]*m2[j][i]
+    res[]'''
+
+
+
+
+
+
