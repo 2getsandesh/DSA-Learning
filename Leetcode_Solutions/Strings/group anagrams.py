@@ -7,10 +7,7 @@ class Solution:
         groupMap = {}
 
         for string in strs:
-            sortedstring = ''.join(sorted(string))
-            if sortedstring in groupMap:
-                groupMap[sortedstring].append(string)
-            else: 
-                groupMap[sortedstring] = [string]
-
+            key = ''.join(sorted(string))
+            if key in groupMap: groupMap[key].append(string)
+            else: groupMap[key] = [string]
         return list(groupMap.values())
