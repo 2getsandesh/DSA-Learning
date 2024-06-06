@@ -20,3 +20,15 @@ class Solution:
                     li.pop()
                 else: return False
         if li == []: return True
+
+#-----------------------------------------------------------------------------#
+class Solution:
+    def isValid(self, s: str) -> bool:
+        n = len(s)
+
+        while n>0:
+            initial = len(s)
+            s=s.replace('()','').replace('{}','').replace('[]','')
+            n = len(s)
+            if initial == n: return False
+        return True
