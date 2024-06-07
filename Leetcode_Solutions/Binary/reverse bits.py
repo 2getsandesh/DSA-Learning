@@ -8,3 +8,8 @@ class Solution:
             res = res | n&1
             n=n>>1
         return res
+    
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        st = bin(n)[2:].zfill(32)
+        return int(st[::-1],2)
