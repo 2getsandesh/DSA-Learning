@@ -15,3 +15,4 @@ class Solution:
             if height[r]>height[l]: l+=1
             else: r-=1
         return area
+    

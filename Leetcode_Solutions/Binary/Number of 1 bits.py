@@ -9,4 +9,14 @@ class Solution:
             if i == '1':
                 count += 1
         return count
+    
+#-------------------------------------------------------------------#
+
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        c = 0
+        while n:
+            if n&1 == 1: c += 1
+            n = n>>1
+        return c
         

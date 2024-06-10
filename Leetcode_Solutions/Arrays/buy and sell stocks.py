@@ -11,3 +11,4 @@ class Solution:
             if i<least: least = i
             if i-least>profit: profit = i-least
         return profit
+    
