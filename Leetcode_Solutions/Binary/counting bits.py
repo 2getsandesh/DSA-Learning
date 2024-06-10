@@ -11,8 +11,9 @@ class Solution:
 #----------------------------------------------------#
 
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        n = len(nums)
-        actual = n*(n+1)//2
-        gotsum = sum(nums)
-        return actual - gotsum
+    def countBits(self, n: int) -> List[int]:
+        if not n: return [0]
+        dp = [0]
+        for i in range(1,n+1):
+                dp.append(dp[i//2]+i%2)
+        return dp
