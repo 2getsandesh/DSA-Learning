@@ -35,7 +35,7 @@ class Solution:
         if not root: return 0
         
         stack = [[root,1]]
-        maxdepth = 1
+        maxdepth = 0
 
         while stack:
             node, depth = stack.pop()
