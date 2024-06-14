@@ -29,3 +29,19 @@ class Solution:
         return depth
     
 #--------------------------Iterative DFS-------------------------------------#
+
+class Solution:
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        if not root: return 0
+        
+        stack = [[root,1]]
+        maxdepth = 1
+
+        while stack:
+            node, depth = stack.pop()
+            if node:
+                maxdepth = max(depth,maxdepth)
+                stack.append([node.left, depth + 1])
+                stack.append([node.right, depth + 1])
+                
+        return maxdepth        
