@@ -11,6 +11,23 @@ class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         if not p and not q: return True
         if not p or not q: return False
-        if p.val != q.val: return False
-        
-        return self.isSameTree(p.left,q.left) and self.isSameTree(p.right, q.right)
+        if p.val == q.val: 
+            return self.isSameTree(p.left,q.left) and self.isSameTree(p.right, q.right)
+
+#-----------------------------------------iterative DFS--------------------------------------------#
+
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and not q :
+            return True
+        stack = [(p,q)]
+        while stack:
+            a,b = stack.pop()
+            
+            if a and b:
+                if a.val != b.val:
+                    return False
+                stack.append((a.left, b.left))
+                stack.append((a.right, b.right))
+            elif a or b: return False
+        return True
