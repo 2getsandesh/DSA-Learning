@@ -16,3 +16,23 @@ class Solution:
             if not p or not q: return False
             if p.val == q.val:
                 return self.same(p.left,q.left) and self.same(p.right, q.right)
+            
+#----------------------------------------------------------------------------------------------------------#
+
+
+class Solution:
+    def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
+
+        stack = [root]
+        while stack:
+            a = stack.pop()
+            if a :
+                stack.append(a.left)
+                stack.append(a.right)
+                if self.same(a,subRoot): return True
+        return False  
+    def same(self,p,q):
+            if not p and not q: return True
+            if not p or not q: return False
+            if p.val == q.val:
+                return self.same(p.left,q.left) and self.same(p.right, q.right)
