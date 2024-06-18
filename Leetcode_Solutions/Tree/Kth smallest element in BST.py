@@ -22,7 +22,7 @@ class Solution:
             while cur:
                 stack.append(cur)
                 cur = cur.left
-            cur = stack.pop()
+            cur = stack.pop() 
             k -= 1
             if k==0: return cur.val
             cur = cur.right
