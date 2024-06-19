@@ -23,3 +23,11 @@ class Solution:
             comp = target - nums[i]
             if comp in numMap and numMap[comp]!=i:
                 return [i,numMap[comp]]
+            
+#------------------------------------------------------------
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            comp = target - nums[i]
+            if comp in nums and nums.index(comp) != i: return [i,nums.index(comp)]
