@@ -8,13 +8,14 @@ class Solution:
         res = set()
 
         for i in range(len(nums)-2):
+            if i>0 and nums[i] == nums[i-1]: continue #to skip duplicate values
             j,k = i+1, len(nums)-1
             while j<k:
                 currsum = nums[j] + nums[k] + nums[i]
-                if currsum == 0: 
+                if currsum < 0: j+=1
+                elif currsum > 0: k-=1
+                else: 
                     res.add((nums[i],nums[j],nums[k]))
                     j+=1
                     k-=1
-                elif currsum > 0: k-=1
-                else: j+=1
         return res
