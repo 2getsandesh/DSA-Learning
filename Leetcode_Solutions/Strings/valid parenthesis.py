@@ -6,6 +6,34 @@ Every close bracket has a corresponding open bracket of the same type.'''
 
 class Solution:
     def isValid(self, s: str) -> bool:
+        left = ["(", "[", "{"]
+        right = [")", "]", "}"]
+        stack = []
+        
+        for i in s:
+            stack.append(i)
+            if len(stack)>1: 
+                prev = stack[-2]
+                top = stack[-1]
+                if prev in left and top in right and left.index(prev) == right.index(top):
+                    stack.pop()
+                    stack.pop()
+        return False if stack else True
+
+#-----------------------------------------------------------------------------#
+class Solution:
+    def isValid(self, s: str) -> bool:
+        n = len(s)
+
+        while n>0:
+            initial = len(s)
+            s=s.replace('()','').replace('{}','').replace('[]','')
+            n = len(s)
+            if initial == n: return False
+        return True
+#-----------------------------------------------------------------------------#
+class Solution:
+    def isValid(self, s: str) -> bool:
         n = len(s)
         if n%2 != 0 : return False
         openb = ['(','[','{']
@@ -21,14 +49,3 @@ class Solution:
                 else: return False
         if li == []: return True
 
-#-----------------------------------------------------------------------------#
-class Solution:
-    def isValid(self, s: str) -> bool:
-        n = len(s)
-
-        while n>0:
-            initial = len(s)
-            s=s.replace('()','').replace('{}','').replace('[]','')
-            n = len(s)
-            if initial == n: return False
-        return True
