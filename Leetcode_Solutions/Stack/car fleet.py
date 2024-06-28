@@ -16,3 +16,16 @@ class Solution:
                 res += 1
                 maxtime = time
         return res
+    
+#---------------------------------Less efficient solution (using STACK)----------------------------------------------------------------#
+
+class Solution:
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+        rev_sorted_pairs = [[p,s] for p,s in sorted(zip(position,speed), reverse=True)]
+        stack = []
+        for pos,speed in rev_sorted_pairs:
+            time = (target-pos)/speed
+            stack.append(time)
+            if len(stack)>1 and stack[-1]<=stack[-2]:
+                stack.pop()
+        return len(stack)
