@@ -5,12 +5,13 @@ Given the two integers numBottles and numExchange, return the maximum number of 
 
 class Solution:
     def numWaterBottles(self, numBottles: int, numExchange: int) -> int:
-        fullBottles = 0
+        fullBottles = 0 #Already drank all the initial bottles
         emptyBottles = numBottles
-        drink = numBottles
+        drank = numBottles
 
         while emptyBottles >= numExchange:
             fullBottles = emptyBottles//numExchange
-            drink += fullBottles
-            emptyBottles = fullBottles + emptyBottles%numExchange
-        return drink
+            balanceEmpty = emptyBottles%numExchange
+            drank += fullBottles
+            emptyBottles = fullBottles + balanceEmpty
+        return drank
