@@ -1,0 +1,1 @@
+LENGTH(content) - LENGTH(REPLACE(content, ' ', '')) + 1 > 2;
