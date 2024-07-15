@@ -15,3 +15,19 @@ class Solution:
                 l+=1
             longest = max(r-l+1, longest)
         return longest
+
+
+#-------------------------more efficient-------------------------------------#
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        freq = {}
+        l = 0
+        maxcount = 0
+        for r in range(len(s)):
+            freq[s[r]] = 1 + freq.get(s[r],0)
+            windowlen = r-l+1
+            if windowlen-max(freq.values()) > k:
+                freq[s[l]] -= 1
+                l+=1
+            else: maxcount = max(windowlen,maxcount)
+        return maxcount
